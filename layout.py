@@ -38,7 +38,8 @@ layout = html.Div([
                         html.Td(html.Img(src=row['Foto'], className='foto-vendedor', style={'width': '50px'})),
                         html.Td(html.A(row['Nome'], href=f"/vendedor/{row['Nome'].replace(' ', '-')}", style={'fontWeight': 'bold', 'color': 'black'})),
                         html.Td(f"{row['Vendas']} vendas", style={'color': '#6A0DAD', 'textAlign': 'right'})
-                    ]) for index, row in vendedores.head(18).iterrows()
+                    ]) for index, row in vendedores.head(18).reset_index(drop=True).iterrows()
+
                 ])
             ], className='tabela-vendedores')
         ], className='rank-card'),
@@ -65,13 +66,14 @@ layout = html.Div([
 def vendedor_layout(nome_slug):
     nome_real = nome_slug.replace('-', ' ')
     vendedor = vendedores[vendedores['Nome'] == nome_real]
-    
+
     if vendedor.empty:
         return html.H3("Vendedor não encontrado.")
 
     vendedor = vendedor.iloc[0]
 
     return html.Div([
+    html.Div([
         html.H2(f"Detalhes do Vendedor: {vendedor['Nome']}", style={'textAlign': 'center'}),
         html.Img(src=vendedor['Foto'], style={
             'width': '150px',
@@ -80,5 +82,9 @@ def vendedor_layout(nome_slug):
             'margin': '20px auto'
         }),
         html.P(f"Total de vendas: {vendedor['Vendas']} vendas", style={'textAlign': 'center', 'fontSize': '20px'}),
+        html.P(f"📞 Telefone: {vendedor['Telefone']}", style={'textAlign': 'center'}),
+        html.P(f"📍 Endereço: {vendedor['Endereço']}", style={'textAlign': 'center'}),
         html.Div(html.A("⬅ Voltar para o dashboard", href="/"), style={'textAlign': 'center', 'marginTop': '20px'})
-    ])
+    ], className='vendedor-detalhes')
+])
+

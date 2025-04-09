@@ -1,3 +1,5 @@
+from faker import Faker
+faker = Faker('pt_BR')
 import pandas as pd
 import numpy as np
 
@@ -6,9 +8,9 @@ np.random.seed(42)
 # Vendedores
 vendedores = pd.DataFrame({
     'Nome': [
-    'Lucas Ferreira', 'Ana Paula Souza', 'Carlos Eduardo',
-    'Juliana Mendes', 'Felipe Rocha', 'Mariana Oliveira',
-    'Bruno Lima', 'Camila Duarte', 'Rafael Costa', 'Isabela Martins'
+        'Lucas Ferreira', 'Ana Paula Souza', 'Carlos Eduardo',
+        'Juliana Mendes', 'Felipe Rocha', 'Mariana Oliveira',
+        'Bruno Lima', 'Camila Duarte', 'Rafael Costa', 'Isabela Martins'
     ],
     'Vendas': np.random.randint(50, 500, size=10),
     'Foto': [
@@ -22,8 +24,11 @@ vendedores = pd.DataFrame({
         'https://randomuser.me/api/portraits/women/52.jpg',
         'https://randomuser.me/api/portraits/men/14.jpg',
         'https://randomuser.me/api/portraits/women/60.jpg'
-    ]
+    ],
+    'Telefone': [faker.phone_number() for _ in range(10)],
+    'Endereço': [faker.address().replace("\n", ", ") for _ in range(10)]
 }).sort_values(by='Vendas', ascending=False)
+
 
 # Dados principais
 dates = pd.date_range(start="2022-01-01", periods=100)

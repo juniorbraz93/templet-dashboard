@@ -21,6 +21,16 @@ h4 {
     margin-bottom: 10px;
 }
 
+.vendedor-detalhes {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 60%;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    color: #000000;
+}
+
 .tabela-vendedores {
     width: 100%;
     border-collapse: collapse;
