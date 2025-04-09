@@ -1,9 +1,44 @@
-meu_dashboard/
-│
-├── app.py                       # Script principal que inicializa o Dash
-├── callbacks.py                # Funções de callback separadas
-├── layout.py                   # Layout da aplicação (estrutura visual)
-├── data.py                     # Geração/carregamento dos dados
-├── utils.py                    # Funções utilitárias como get_top_10
-├── assets/
-│   └── style.css               # Estilos personalizados para o app
+## Indice
+
+- [Sobre](#-sobre)
+- [Tecnologias utilizadas](#-tecnologias-utilizadas)
+- [Como baixar o projeto](#-como-baixar-o-projeto)
+- [Funcionalidades](#-Funcionalidades)
+
+---
+
+## 🤔 Sobre
+
+Projeto **Dashboard**, projeto feito com base nos conceitos de um Dashboard.
+
+---
+
+## 💻 Tecnologias utilizadas
+
+O projeto foi feito utilizando das seguintes tecnologias
+
+- 🐍 Python
+
+---
+
+## 📦 Como baixar o projeto
+
+```bash
+  #clonar o repositorio
+  $ git clone https://github.com/juniorbraz93/dashboard-cdl.git
+
+  #entrar na pasta do projeto
+  $ cd dashboard-cdl
+
+  #instalar as dependencias
+  $ python app.py
+
+```
+
+---
+
+## 💻 Funcionalidades
+
+- 🏠 Dashboard ✅
+
+Desenvolvido 🧑‍💻 por [Junior Braz](https://github.com/juniorbraz93) & [Brenda Mendes](https://github.com/brxndas)
