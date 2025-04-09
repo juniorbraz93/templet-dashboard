@@ -25,10 +25,10 @@ O projeto foi feito utilizando das seguintes tecnologias
 
 ```bash
   #clonar o repositorio
-  $ git clone https://github.com/juniorbraz93/dashboard-cdl.git
+  $ git clone https://github.com/juniorbraz93/templet-dashboard.git
 
   #entrar na pasta do projeto
-  $ cd dashboard-cdl
+  $ cd templet-dashboard
 
   #instalar as dependencias
   $ python app.py
