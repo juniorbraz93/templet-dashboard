@@ -36,7 +36,7 @@ df = pd.DataFrame({
     'Revenue': np.random.uniform(1000, 5000, size=100)
 }, index=dates)
 
-# Função para obter os top 10 valores
+# Função para obter os TOP 18 valores
 def get_top_10(df, column_name):
     top_10 = df[column_name].nlargest(10).reset_index()
     top_10.columns = ['Date', column_name]
@@ -63,14 +63,14 @@ html.Div([
 
     html.Div([
         html.Div([
-            html.H4('TOP 10 DIAS COM MAIS VENDAS'),
+            html.H4('TOP 18 DIAS COM MAIS VENDAS'),
             dash_table.DataTable(id='top_sales_table',
                                  style_table={'overflowX': 'auto'},
                                  style_data={'color': '#000000'})
         ], className='rank-card'),
 
         html.Div([
-            html.H4('TOP 10 VENDEDORES'),
+            html.H4('TOP 18 VENDEDORES'),
             html.Div([
                 html.Div([
                     html.Img(src=row['Foto'], className='vendedor-img'),
@@ -84,7 +84,7 @@ html.Div([
         ], className='rank-card'),
 
         html.Div([
-            html.H4('TOP 10 RECEITAS'),
+            html.H4('TOP 18 RECEITAS'),
             dash_table.DataTable(id='top_revenue_table',
                                  style_table={'overflowX': 'auto'},
                                  style_data={'color': '#000000'})

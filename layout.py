@@ -19,12 +19,12 @@ layout = html.Div([
 
     html.Div([
         html.Div([
-            html.H4('TOP 10 DIAS COM MAIS VENDAS'),
+            html.H4('DIAS COM MAIS VENDAS'),
             dash_table.DataTable(id='top_sales_table')
         ], className='rank-card'),
 
         html.Div([
-            html.H4('TOP 10 VENDEDORES'),
+            html.H4('RANKING VENDEDORES'),
             html.Div([
                 html.Div([
                     html.Img(src=row['Foto'], className='vendedor-img'),
@@ -38,7 +38,7 @@ layout = html.Div([
         ], className='rank-card'),
 
         html.Div([
-            html.H4('TOP 10 RECEITAS'),
+            html.H4(' RECEITAS'),
             dash_table.DataTable(id='top_revenue_table')
         ], className='rank-card'),
 

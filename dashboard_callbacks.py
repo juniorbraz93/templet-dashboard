@@ -1,7 +1,7 @@
 from dash.dependencies import Input, Output
 import pandas as pd
 from data import df
-from utils import get_top_10
+from utils import get_top_n
 
 def register_callbacks(app):
     @app.callback(
@@ -13,11 +13,11 @@ def register_callbacks(app):
         [Input('dropdown_column', 'value')]
     )
     def update_dashboard(selected_column):
-        top_sales_df = get_top_10(df, 'Sales')
-        top_revenue_df = get_top_10(df, 'Revenue')
+        top_sales_df = get_top_n(df, 'Sales', n=18)
+        top_revenue_df = get_top_n(df, 'Revenue', n=18)
         average_sales_df = pd.DataFrame({
-            'Date': df.index[:10].strftime('%d/%m/%Y'),
-            'Average Sales': [df['Sales'].mean()] * 10
+            'Date': df.index[:18].strftime('%d/%m/%Y'),
+            'Average Sales': [df['Sales'].mean()] * 18
         })
 
         column_fig = {
@@ -36,11 +36,11 @@ def register_callbacks(app):
             }
         }
 
-        top_5 = df[selected_column].nlargest(5)
+        top_7 = df[selected_column].nlargest(7)
         pie_fig = {
             'data': [{
-                'labels': top_5.index.strftime('%d/%m/%Y'),
-                'values': top_5.values,
+                'labels': top_7.index.strftime('%d/%m/%Y'),
+                'values': top_7.values,
                 'type': 'pie',
                 'name': selected_column
             }],

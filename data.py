@@ -5,7 +5,11 @@ np.random.seed(42)
 
 # Vendedores
 vendedores = pd.DataFrame({
-    'Nome': [f'Vendedor {i+1}' for i in range(10)],
+    'Nome': [
+    'Lucas Ferreira', 'Ana Paula Souza', 'Carlos Eduardo',
+    'Juliana Mendes', 'Felipe Rocha', 'Mariana Oliveira',
+    'Bruno Lima', 'Camila Duarte', 'Rafael Costa', 'Isabela Martins'
+    ],
     'Vendas': np.random.randint(50, 500, size=10),
     'Foto': [
         'https://randomuser.me/api/portraits/men/32.jpg',
