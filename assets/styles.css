@@ -1,0 +1,71 @@
+/* Estilos gerais */
+body {
+    background-color: #2E2E2E;
+    color: #000000 !important;
+    font-family: Arial, sans-serif;
+}
+
+/* Título principal */
+h1 {
+    text-align: center;
+    font-size: 40px;
+    /* color: #000000; */
+    margin-bottom: 20px;
+}
+
+.titulo-central {
+    text-align: center;
+    font-size: 40px;
+    /* color: #000000; */
+    margin-bottom: 20px;
+}
+
+.dropdown-container {
+    display: none;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos cards de ranking */
+.rank-card {
+    background-color: #D3D3D3;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0 10px;
+    flex: 1;
+}
+
+/* Título dentro dos cards */
+.rank-card h4 {
+    color: #000000;
+}
+
+/* Estilo da imagem dos vendedores */
+.vendedor-img {
+    height: 50px;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+
+/* Estilo de container para o vendedor */
+.vendedor-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Layout de seção */
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* Dropdown alinhado com o título */
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
