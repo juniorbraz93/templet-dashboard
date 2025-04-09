@@ -17,25 +17,33 @@ layout = html.Div([
         )
     ], className='dropdown-container'),
 
-    html.Div([
         html.Div([
-            html.H4('DIAS COM MAIS VENDAS'),
-            dash_table.DataTable(id='top_sales_table')
+            html.Div([
+                html.H4('DIAS COM MAIS VENDAS'),
+                dash_table.DataTable(id='top_sales_table')
+            ], className='rank-card'),
+
+            html.Div([
+            html.H4('TOP 10 VENDEDORES', style={'textAlign': 'center'}),
+            html.Table([
+                html.Thead(html.Tr([
+                    html.Th('Rank'),
+                    html.Th('Foto'),
+                    html.Th('Vendedor'),
+                    html.Th('Vendas')
+                ])),
+                html.Tbody([
+                    html.Tr([
+                        html.Td(index + 1),
+                        html.Td(html.Img(src=row['Foto'], className='foto-vendedor', style={'width': '50px'})),
+                        html.Td(html.A(row['Nome'], href=f"/vendedor/{row['Nome'].replace(' ', '-')}", style={'fontWeight': 'bold', 'color': 'black'})),
+                        html.Td(f"{row['Vendas']} vendas", style={'color': '#6A0DAD', 'textAlign': 'right'})
+                    ]) for index, row in vendedores.head(18).iterrows()
+                ])
+            ], className='tabela-vendedores')
         ], className='rank-card'),
 
-        html.Div([
-            html.H4('RANKING VENDEDORES'),
-            html.Div([
-                html.Div([
-                    html.Img(src=row['Foto'], className='vendedor-img'),
-                    html.Div([
-                        html.Strong(row['Nome']),
-                        html.Div(f"Vendas: {row['Vendas']}", style={'font-size': '12px'})
-                    ])
-                ], className='vendedor-container')
-                for _, row in vendedores.iterrows()
-            ])
-        ], className='rank-card'),
+
 
         html.Div([
             html.H4(' RECEITAS'),
@@ -53,3 +61,24 @@ layout = html.Div([
         dcc.Graph(id='pie_graph', style={'display': 'inline-block', 'width': '48%'})
     ])
 ])
+
+def vendedor_layout(nome_slug):
+    nome_real = nome_slug.replace('-', ' ')
+    vendedor = vendedores[vendedores['Nome'] == nome_real]
+    
+    if vendedor.empty:
+        return html.H3("Vendedor não encontrado.")
+
+    vendedor = vendedor.iloc[0]
+
+    return html.Div([
+        html.H2(f"Detalhes do Vendedor: {vendedor['Nome']}", style={'textAlign': 'center'}),
+        html.Img(src=vendedor['Foto'], style={
+            'width': '150px',
+            'borderRadius': '50%',
+            'display': 'block',
+            'margin': '20px auto'
+        }),
+        html.P(f"Total de vendas: {vendedor['Vendas']} vendas", style={'textAlign': 'center', 'fontSize': '20px'}),
+        html.Div(html.A("⬅ Voltar para o dashboard", href="/"), style={'textAlign': 'center', 'marginTop': '20px'})
+    ])

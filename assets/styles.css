@@ -21,6 +21,35 @@ h4 {
     margin-bottom: 10px;
 }
 
+.tabela-vendedores {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+}
+
+.tabela-vendedores th, .tabela-vendedores td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    font-size: 14px;
+    color: #000000;
+}
+
+.tabela-vendedores th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.foto-vendedor {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
 
 .titulo-central {
     text-align: center;
