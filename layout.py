@@ -2,6 +2,9 @@ import dash_html_components as html
 import dash_core_components as dcc
 import dash_table
 from data import vendedores, df
+from data import gerar_vendas_fakes
+import dash_table
+
 
 layout = html.Div([
     # Título com imagem à esquerda
@@ -105,6 +108,26 @@ def vendedor_layout(nome_slug):
 
     vendedor = vendedor.iloc[0]
 
+    # Gerar vendas fictícias
+    vendas_fakes = gerar_vendas_fakes(vendedor['Nome'], qtd=10)
+
+    # Criar tabela com essas vendas
+    tabela_vendas = dash_table.DataTable(
+        columns=[{'name': col, 'id': col} for col in vendas_fakes[0].keys()],
+        data=vendas_fakes,
+        style_table={'overflowX': 'auto', 'marginTop': '30px'},
+        style_cell={
+            'textAlign': 'left',
+            'padding': '8px',
+            'color': '#000000',
+            'fontSize': '14px'
+        },
+        style_header={
+            'backgroundColor': '#f0f0f0',
+            'fontWeight': 'bold'
+        }
+    )
+
     return html.Div([
         html.Div([
             html.H2(f"Detalhes do Vendedor: {vendedor['Nome']}", style={'textAlign': 'center'}),
@@ -117,6 +140,11 @@ def vendedor_layout(nome_slug):
             html.P(f"Total de vendas: {vendedor['Vendas']} vendas", style={'textAlign': 'center', 'fontSize': '20px'}),
             html.P(f"📞 Telefone: {vendedor['Telefone']}", style={'textAlign': 'center'}),
             html.P(f"📍 Endereço: {vendedor['Endereço']}", style={'textAlign': 'center'}),
-            html.Div(html.A("⬅ Voltar para o dashboard", href="/"), style={'textAlign': 'center', 'marginTop': '20px'})
+
+            html.Div(html.A("⬅ Voltar para o dashboard", href="/"), style={'textAlign': 'center', 'marginTop': '20px'}),
+            
+            html.H4("Vendas Recentes", style={'textAlign': 'center', 'marginTop': '40px'}),
+            tabela_vendas
         ], className='vendedor-detalhes')
     ])
+

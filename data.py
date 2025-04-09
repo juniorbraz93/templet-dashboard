@@ -37,3 +37,15 @@ df = pd.DataFrame({
     'Customers': np.random.randint(10, 100, size=100),
     'Revenue': np.random.uniform(1000, 5000, size=100)
 }, index=dates)
+
+
+def gerar_vendas_fakes(nome_vendedor, qtd=5):
+    vendas = []
+    for _ in range(qtd):
+        vendas.append({
+            'Cliente': faker.name(),
+            'Produto': faker.word().capitalize(),
+            'Valor (R$)': round(np.random.uniform(50, 5000), 2),
+            'Vendedor': nome_vendedor
+        })
+    return vendas
