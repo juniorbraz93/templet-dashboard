@@ -37,41 +37,41 @@ def register_callbacks(app):
         }
 
         top_7 = df[selected_column].nlargest(7)
-        pie_fig = {
-    'data': [{
-        'labels': top_7.index.strftime('%d/%m/%Y'),
-        'values': top_7.values,
-        'type': 'pie',
-        'hole': 0.1,  # pequeno buraco central
-        'pull': [0.05]*5,  # afastar um pouco cada fatia
-        'marker': {
-            'line': {'color': 'white', 'width': 2},
-            'colors': ['#6A0DAD', '#A569BD', '#BB8FCE', '#D2B4DE', '#E8DAEF']
-        }
-    }],
-    'layout': {
-        'title': f'Top 5 dias em {selected_column}',
-        'paper_bgcolor': '#2E2E2E',
-        'plot_bgcolor': '#2E2E2E',
-        'font': {'color': '#FFFFFF'},
-        'showlegend': True
-    }
-}
+    #     pie_fig = {
+    #     'data': [{
+    #         'labels': top_7.index.strftime('%d/%m/%Y'),
+    #         'values': top_7.values,
+    #         'type': 'pie',
+    #         'hole': 0.1,  # pequeno buraco central
+    #         'pull': [0.05]*5,  # afastar um pouco cada fatia
+    #         'marker': {
+    #             'line': {'color': 'white', 'width': 2},
+    #             'colors': ['#6A0DAD', '#A569BD', '#BB8FCE', '#D2B4DE', '#E8DAEF']
+    #         }
+    #     }],
+    #     'layout': {
+    #         'title': f'Top 5 dias em {selected_column}',
+    #         'paper_bgcolor': '#2E2E2E',
+    #         'plot_bgcolor': '#2E2E2E',
+    #         'font': {'color': '#FFFFFF'},
+    #         'showlegend': True
+    #     }
+    # }
 
-        # pie_fig = {
-        #     'data': [{
-        #         'labels': top_7.index.strftime('%d/%m/%Y'),
-        #         'values': top_7.values,
-        #         'type': 'pie',
-        #         'name': selected_column
-        #     }],
-        #     'layout': {
-        #         'title': f'Top 7 dias em {selected_column}',
-        #         'paper_bgcolor': '#2E2E2E',
-        #         'plot_bgcolor': '#2E2E2E',
-        #         'font': {'color': '#FFFFFF'}
-        #     }
-        # }
+        pie_fig = {
+            'data': [{
+                'labels': top_7.index.strftime('%d/%m/%Y'),
+                'values': top_7.values,
+                'type': 'pie',
+                'name': selected_column
+            }],
+            'layout': {
+                'title': f'Top 7 dias em {selected_column}',
+                'paper_bgcolor': '#2E2E2E',
+                'plot_bgcolor': '#2E2E2E',
+                'font': {'color': '#FFFFFF'}
+            }
+        }
 
         return (top_sales_df.to_dict('records'),
                 top_revenue_df.to_dict('records'),

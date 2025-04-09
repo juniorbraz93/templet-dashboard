@@ -31,6 +31,9 @@ O projeto foi feito utilizando das seguintes tecnologias
   $ cd templet-dashboard
 
   #instalar as dependencias
+  $ pip install -r requirements.txt
+
+  #Executar o dashboard
   $ python app.py
 
 ```
