@@ -18,6 +18,10 @@ Projeto **Dashboard**, projeto feito com base nos conceitos de um Dashboard.
 O projeto foi feito utilizando das seguintes tecnologias
 
 - 🐍 Python
+- 💨dash
+- 🐼pandas
+- #️⃣numpy
+- 📈plotly
 
 ---
 

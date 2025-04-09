@@ -10,7 +10,7 @@ layout = html.Div([
             'height': '50px',
             'marginRight': '15px'
         }),
-        html.H1("Dashboard", className='titulo-central')
+        html.H1("Dashboard de Vendas", className='titulo-central')
     ], style={'display': 'flex', 'alignItems': 'center', 'marginBottom': '20px'}),
 
     # Dropdown de seleção
