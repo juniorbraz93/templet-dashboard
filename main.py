@@ -145,4 +145,5 @@ def update_dashboard(selected_column):
 
 # Executa o servidor
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)
+
