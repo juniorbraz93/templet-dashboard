@@ -45,7 +45,7 @@ def register_callbacks(app):
                 'name': selected_column
             }],
             'layout': {
-                'title': f'Top 5 dias em {selected_column}',
+                'title': f'Top 7 dias em {selected_column}',
                 'paper_bgcolor': '#2E2E2E',
                 'plot_bgcolor': '#2E2E2E',
                 'font': {'color': '#FFFFFF'}
