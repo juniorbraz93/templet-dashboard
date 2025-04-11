@@ -1,9 +1,6 @@
-import dash_html_components as html
-import dash_core_components as dcc
-import dash_table
+from dash import html, dcc, dash_table
 from data import vendedores, df
 from data import gerar_vendas_fakes
-import dash_table
 
 
 layout = html.Div([
